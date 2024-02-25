@@ -67,7 +67,7 @@ public class PlayerSkinUpdater implements ServerEventListener {
         // only update if last update was longer then an hour ago
         long lastUpdate = skinUpdates.getOrDefault(playerUuid, 0L);
         long now = System.currentTimeMillis();
-        if (now - lastUpdate < TimeUnit.HOURS.toMillis(1)) return CompletableFuture.completedFuture(null);
+        if (now - lastUpdate < TimeUnit.MINUTES.toMillis(1)) return CompletableFuture.completedFuture(null);
         skinUpdates.put(playerUuid, now);
 
         // do the update async
